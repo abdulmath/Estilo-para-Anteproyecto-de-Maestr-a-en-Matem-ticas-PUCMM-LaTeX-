@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ambiente para la declaración de Frases y Poemas  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{savequotejav}[1][10cm]{%
+  \begin{lrbox}{\@quotebox}
+    \begin{minipage}[t]{#1}\footnotesize\itshape
+      \ignorespaces}{%
+      \unskip\end{minipage}\end{lrbox}
+  \global\setbox\@quotebox\copy\@quotebox
+  \global\let\@printcites\@iprintcites
+  \ignorespacesafterend}
+\newcommand{\qauthor}[1]{%
+  \par\smallskip
+  {\raggedleft\upshape #1\qquad\hbox{}\par}\bigskip}
+\newsavebox{\@quotebox}
+\let\@printcites\relax
+
+\newcommand*{\@iprintcites}{%
+  \vbox to\z@{\copy\@quotebox\vss}
+  \global\let\@printcites\relax}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

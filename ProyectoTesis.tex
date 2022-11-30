@@ -1,0 +1,164 @@
+\documentclass[letterpaper,12pt,oneside]{book}
+\usepackage[spanish,activeacute]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{calligra,mathrsfs,mathptmx}
+\usepackage{url,times,color}
+\usepackage{amssymb,amsmath,amsfonts,dsfont,latexsym,amsthm,esvect}
+\usepackage{graphicx,graphics,subfigure,wrapfig}
+\usepackage{multirow,multicol,rotating,float}
+\usepackage{colortbl}
+\usepackage[Conny]{fncychap}
+\usepackage{fancyhdr}
+\renewcommand{\baselinestretch}{2}
+\parindent=10mm
+\newlength{\mitad}
+\setlength{\mitad}{0.5\textwidth}
+\newlength{\mitadmas}
+\setlength{\mitadmas}{0.68\textwidth}
+\usepackage[letterpaper,top=2.5cm,right=2cm,left=3cm,paperwidth=21.6cm,paperheight=27.9cm,
+textwidth=16.6cm,textheight=22.9cm]{geometry}
+\usepackage{setspace,boiboites}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+\usepackage{varwidth,stackrel}
+\usepackage{xparse,tcolorbox,tikz}
+\usepackage{makeidx}
+\usepackage{algorithm,algorithmic}
+\usepackage{apacite}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Background de la Portada
+\usepackage[pages=some,placement=top,opacity=1]{background}
+\SetBgContents{\tikz{\draw[azulPUCMM,fill] (0,0) rectangle (.5,3);}}
+\SetBgHshift{-23.5}
+\SetBgVshift{0.5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeindex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \definecolor{grey}{rgb}{0.43,0.47,0.61} 
+\definecolor{azulPUCMM}{RGB}{0,93,170}
+% \newrgbcolor{bluepast}{0.6 1 1}
+% \newrgbcolor{yellowpast}{1 0.8 0.2}
+% \newrgbcolor{lavendar}{0.8 0.6 1}
+% \newrgbcolor{greenpast}{0.565 0.6375 0.25}
+% \newrgbcolor{indigo}{0.3098 0.5059 0.7412}
+% \newrgbcolor{wine}{0.6471 0 0.1294}
+% \newrgbcolor{orange}{0.9019 0.5372 0}
+% \newrgbcolor{skin}{0.9804 0.74901 0.5608}
+% \newrgbcolor{blanco}{1 1 1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\decimalpoint
+\addto\captionsspanish{%
+\def\figurename{{\small Figura}}%
+\def\tablename{Tabla}%
+\def\contentsname{Índice General}%
+\def\listtablename{Índice de Tablas}%
+\def\bibname{Referencias Bibliográficas}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\bibname}{Referencias Bibliográficas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{\nouppercase{\leftmark}}
+\fancyhead[R]{\nouppercase{\rightmark}}
+\fancyhead[RO]{\thepage}
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{\thechapter. #1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textbf{\thesection. #1}}}
+\renewcommand{\headrulewidth}{0.6pt}
+%\renewcommand{\footrulewidth}{0.6pt}
+\setlength{\headheight}{1\headheight}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\membrete{
+\begin{flushleft}
+\hspace{-6cm}\includegraphics[]{./figuras/MarcaPUCMM.png}
+\end{flushleft}
+\begin{center}
+\textsc{Vicerrectorado de Postgrado\\
+Escuela de Ciencias Básicas y Exactas\\
+Maestría en Matemática}
+\end{center}}
+\onehalfspacing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Este comando evita que aparezcan hojas de sobra.
+\renewcommand{\cleardoublepage}{\clearpage\if@twoside\ifodd\c@page\else\hbox{}
+\thispagestyle{empty}
+\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%Teoremas, Corolarios, Definiciones, etc%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\qedsymbol}{$\blacksquare$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\theorembodyfont{\normalfont}
+%\theoremheaderfont{\scshape\large}
+% COLORES personales---------------------------------------------------
+    \definecolor{colortitulo}{RGB}{11,17,79} % 
+    \definecolor{colordominante}{RGB}{11,17,79}
+    \definecolor{colordominanteF}{RGB}{219,68,14}
+    \definecolor{colordominanteD}{RGB}{137,46,55}
+    \definecolor{mostaza}{RGB}{231,196,25}
+    \definecolor{amarilloM}{RGB}{248,199,90}
+    \definecolor{amarilloD}{RGB}{251,237,121}
+    \definecolor{azulF}{rgb}{.0,.0,.3}
+    \definecolor{grisD}{rgb}{.3,.3,.3}
+    \definecolor{grisF}{rgb}{.6,.6,.6}
+    \definecolor{grisamarillo}{RGB}{248,248,245} 
+    \definecolor{miverde}{RGB}{44,162,67}
+    \definecolor{verdep}{RGB}{166,206,58}
+    \definecolor{verdencabezado}{RGB}{166,206,58}
+    \definecolor{verdeF}{RGB}{5,92,8}
+    \colorlet{mygray}{black!20}
+    \newcommand{\verde}{\color{miverde}}
+% Fin COLORES personales-------------------------------------------------
+\decimalpoint
+%\newtheorem{alg}{Algoritmo}
+\newboxedtheorem[boxcolor=blue, background=grisF!15, titlebackground=blue!20,
+                   titleboxcolor = black]{teo}{Teorema}{thCounter} 
+\newboxedtheorem[boxcolor=verdep, background=blue!5, titlebackground=blue!20,
+                   titleboxcolor = black]{lema}{Lema}{leCounter}
+\newboxedtheorem[boxcolor=purple, background=blue!2, titlebackground=blue!25,
+                   titleboxcolor = black]{coro}{Corolario}{coCounter}
+\newboxedtheorem[boxcolor=orange, background=blue!5, titlebackground=blue!20,
+                   titleboxcolor = black]{defi}{Definición}{dfCounter}
+\newboxedtheorem[boxcolor=verdeF, background=blue!3, titlebackground=blue!25,
+                   titleboxcolor = black]{ejem}{Ejemplo}{ejCounter}
+\newboxedtheorem[boxcolor=colordominanteD, background=blue!5, titlebackground=blue!20,
+                   titleboxcolor = black]{ejer}{Ejercicio}{ejeCounter}
+\newboxedtheorem[boxcolor=yellow, background=blue!10, titlebackground=blue!15,
+                   titleboxcolor = black]{obs}{Observación}{obsCounter}                 
+\newboxedtheorem[boxcolor=miverde, background=blue!20, titlebackground=blue!15,
+                   titleboxcolor = black]{propo}{Proposición}{propoCounter}
+\newboxedtheorem[boxcolor=azulF, background=red!10, titlebackground=red!5,
+                   titleboxcolor = black]{nota}{Nota}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{5} % para que ponga 1.1.1.1 en subsubsecciones
+\setcounter{tocdepth}{5}
+%%%%%%%%%%%%%%%%%%%%%%
+%Cuerpo del Documento%
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\frontmatter
+\selectlanguage{spanish}
+\input{Portada}
+\input{PagIniciales}
+\tableofcontents
+\listoffigures
+\listoftables
+\mainmatter
+\input{./Planteamiento/planteamiento}
+\input{./Antecedentes/antecedentes}
+\input{./Objetivos/objetivos}
+\input{./Plan/plan}
+%%%%%%%%Comentar \nocite para agregar sus nuevas citas, es solo un ejemplo.
+\nocite{CFN1950,BN1966,R1969,L2021,BCO1981,W1981,HSSKSC1997,C1997,J2002,SJ2004,G2005,AO2010,CL2015,MLR2016}
+\backmatter
+%-----------------------------------------------------------------------
+% Bibliografía
+%-----------------------------------------------------------------------
+\thispagestyle{empty}
+% \addcontentsline{toc}{section}{\color{azulF} Referencias Bibliograficas}
+\bibliographystyle{apacite}
+\bibliography{./Bibliografia/bibliografia}
+%------------------------------------------------------------------------------------- 
+\end{document}
